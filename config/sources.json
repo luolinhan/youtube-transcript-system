@@ -1,0 +1,33 @@
+{
+  "channels": [
+    {
+      "id": "UCZATp-I1x2OjDm3XkGqwrMw",
+      "name": "Lex_Fridman",
+      "type": "interview_podcast",
+      "priority": "high",
+      "note": "顶级长访谈，马斯克/萨姆·奥特曼等均有"
+    },
+    {
+      "id": "UCceuL4MTn0J0w3N0V9rK1IQ",
+      "name": "Y_Combinator",
+      "type": "startup_talk",
+      "priority": "high",
+      "note": "YC 官方，顶级创业者访谈"
+    },
+    {
+      "id": "UCK_zGNpK5qZtNT7CLEZxcww",
+      "name": "All_In_Podcast",
+      "type": "podcast",
+      "priority": "high",
+      "note": "硅谷四骑士，科技投资视角"
+    },
+    {
+      "id": "UCAuUUnT6oDeKwE6v1NGcbug",
+      "name": "TED",
+      "type": "talk",
+      "priority": "medium",
+      "note": "高质量演讲，TED 自带专业字幕"
+    }
+  ],
+  "playlists": []
+}

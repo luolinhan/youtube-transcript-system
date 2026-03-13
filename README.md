@@ -1,94 +1,72 @@
-# YouTube Transcript System
+# YouTube Transcript System v2
 
-A systematic tool for extracting, processing, and organizing YouTube video subtitles for LLM analysis and knowledge extraction.
+高质量 YouTube 访谈/播客字幕提取系统，专为 Notebook LLM 知识库构建。
 
-## 🎯 Purpose
+## 🎯 核心特性
 
-This system helps you:
-- Automatically extract subtitles from YouTube videos of entrepreneurs, investors, and thought leaders
-- Process raw VTT subtitles into clean, LLM-ready text format
-- Organize content by person, topic, and timeline
-- Export data in multiple formats for notebook LLM analysis
+- **精选信源** - 直接订阅顶级频道（Lex Fridman、YC、All-In 等），非关键词搜索
+- **质量过滤** - 自动过滤短视频、低播放量、无字幕内容
+- **人工字幕优先** - 优先下载人工校对字幕，自动字幕作为备选
+- **智能去重** - SQLite 数据库追踪状态，避免重复抓取
+- **VTT 清洗** - 去除时间戳、HTML 标签、重复行，输出干净文本
+- **Notebook 就绪** - 导出 Markdown 格式，直接拖入 Notebook LLM
 
-## 📁 Project Structure
+## 📁 项目结构
 
 ```
-youtube_transcript_system/
-├── config/                          # Configuration files
-│   ├── channels.json               # Target channels/personalities
-│   ├── search_keywords.json        # Search keywords by topic
-│   └── system_settings.json        # System settings
-├── data/                           # Data storage
-│   ├── raw/                       # Raw data
-│   │   ├── vtt_subtitles/         # Raw VTT subtitles
-│   │   └── video_metadata/        # Video metadata
-│   ├── processed/                 # Processed data
-│   │   ├── clean_text/            # Clean text (LLM-ready)
-│   │   └── indexed/               # Indexed and categorized data
-│   └── exports/                   # Export files
-│       └── notebook_ready/        # Notebook LLM ready format
-├── scripts/                        # Core scripts
-│   ├── youtube_scraper.py         # YouTube scraping script
-│   ├── subtitle_processor.py      # Subtitle processing script
-│   ├── export_manager.py          # Export management script
-│   └── update_scheduler.py        # Auto-update scheduler
-├── logs/                          # Log files
-├── docs/                          # Documentation
-│   └── usage_guide.md             # Usage guide
-└── README.md                      # This file
+youtube-transcript-system/
+├── config/
+│   ├── sources.json          # 精选频道配置
+│   ├── targets.json          # 目标人物
+│   └── settings.json         # 系统设置
+├── scripts/
+│   ├── fetch.py              # 主抓取器
+│   ├── processor.py          # VTT 清洗器
+│   └── exporter.py           # 导出器
+├── data/
+│   ├── raw/                  # 原始 VTT 字幕
+│   ├── processed/            # 清洗后文本
+│   ├── exports/              # Notebook-ready 导出
+│   └── index.db              # SQLite 状态数据库
+└── README.md
 ```
 
-## ⚙️ Setup
+## ⚙️ 安装
 
-### Prerequisites
 ```bash
-pip install yt-dlp
+pip3 install yt-dlp webvtt-py tqdm
 ```
 
-### Configuration
-1. Edit `config/channels.json` to add target personalities
-2. Customize `config/search_keywords.json` for your topics of interest
-3. Adjust `config/system_settings.json` for your preferences
+## 🚀 使用
 
-### Usage
+### 1. 配置信源
+编辑 `config/sources.json` 添加目标频道。
+
+### 2. 抓取字幕
 ```bash
-cd scripts
-python3 youtube_scraper.py --update
+cd youtube-transcript-system
+python3 scripts/fetch.py
 ```
 
-## 📤 Output Formats
+### 3. 处理字幕
+```bash
+python3 scripts/processor.py
+```
 
-All processed files are LLM-ready:
+### 4. 导出 Notebook 文件
+```bash
+python3 scripts/exporter.py
+```
 
-- **Pure Text** (`data/processed/clean_text/`): Clean text without timestamps or formatting
-- **JSON Format** (`data/exports/notebook_ready/`): Structured data with metadata
-- **Markdown** (`data/exports/notebook_ready/`): Formatted with headers and categories
+输出文件位于 `data/exports/`。
 
-## 🌍 Network Considerations
+## 📊 质量过滤规则
 
-If you're experiencing network issues with YouTube access:
-1. Use this system on a server with better YouTube connectivity (like your Silicon Valley server)
-2. The system is designed to be portable - just clone and run anywhere
-3. All configuration is in JSON files, making it easy to customize per environment
-
-## 🔄 Automatic Updates
-
-The system supports:
-- Scheduled updates (via cron jobs)
-- Incremental processing (only new content)
-- Error recovery and retry logic
-- Data retention policies
+- 视频时长：20分钟 ~ 5小时
+- 最低播放量：5,000
+- 字幕类型：人工字幕优先，自动字幕备选
+- 去重：已抓取视频自动跳过
 
 ## 📝 License
 
-MIT License - feel free to modify and extend for your needs.
-
-## 🚀 Getting Started
-
-1. Clone this repository
-2. Install dependencies: `pip install yt-dlp`
-3. Configure your targets in `config/` directory
-4. Run the scraper: `cd scripts && python3 youtube_scraper.py --update`
-5. Find your LLM-ready content in `data/processed/clean_text/`
-
-Happy analyzing! 🧠
+MIT

@@ -1,0 +1,24 @@
+{
+  "quality_filter": {
+    "min_duration_seconds": 1200,
+    "max_duration_seconds": 18000,
+    "min_view_count": 5000,
+    "prefer_manual_sub": true,
+    "skip_auto_sub_only": false
+  },
+  "fetch": {
+    "max_videos_per_channel": 50,
+    "max_videos_per_run": 200,
+    "retry_times": 3,
+    "proxy": ""
+  },
+  "subtitle": {
+    "languages": ["en", "zh-Hans", "zh-Hant"],
+    "prefer_manual": true
+  },
+  "export": {
+    "formats": ["md"],
+    "split_by_channel": true,
+    "generate_mega_file": true
+  }
+}

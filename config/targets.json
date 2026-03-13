@@ -1,0 +1,14 @@
+{
+  "personalities": [
+    {
+      "name": "孙宇晨",
+      "english_name": "Justin Sun",
+      "topics": ["blockchain", "cryptocurrency", "entrepreneurship", "investment"]
+    },
+    {
+      "name": "埃隆·马斯克", 
+      "english_name": "Elon Musk",
+      "topics": ["AI", "space", "electric vehicles", "entrepreneurship", "technology"]
+    }
+  ]
+}
