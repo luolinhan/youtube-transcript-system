@@ -1,0 +1,14 @@
+{
+  "auto_update": {
+    "enabled": true,
+    "interval_hours": 24,
+    "max_videos_per_run": 10
+  },
+  "subtitle_preferences": {
+    "language": "en",
+    "fallback_to_auto": true,
+    "include_timestamps": false
+  },
+  "export_formats": ["txt", "json", "md"],
+  "data_retention_days": 365
+}

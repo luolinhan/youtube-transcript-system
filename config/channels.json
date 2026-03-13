@@ -1,0 +1,21 @@
+{
+  "target_personalities": [
+    {
+      "name": "孙宇晨",
+      "english_name": "Justin Sun",
+      "youtube_search_terms": ["Justin Sun", "孙宇晨", "TRON", "Tron Foundation"],
+      "topics_of_interest": ["blockchain", "cryptocurrency", "entrepreneurship", "investment"]
+    },
+    {
+      "name": "埃隆·马斯克",
+      "english_name": "Elon Musk",
+      "youtube_search_terms": ["Elon Musk", "马斯克", "Tesla", "SpaceX", "X", "Neuralink"],
+      "topics_of_interest": ["AI", "space", "electric vehicles", "entrepreneurship", "technology"]
+    }
+  ],
+  "search_settings": {
+    "max_results_per_person": 5,
+    "sort_by": "relevance",
+    "upload_date_filter": "all"
+  }
+}

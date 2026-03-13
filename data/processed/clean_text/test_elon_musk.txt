@@ -1,0 +1,8 @@
+# Elon Musk on AI and the Future of Humanity
+Video ID: dQw4w9WgXcQ
+Upload Date: 20260313
+
+This is a test transcript for the YouTube Transcript System.
+In a real scenario, this would contain the actual subtitle content from Elon Musk's interviews about AI, SpaceX, Tesla, and his vision for the future.
+
+The system successfully extracts and processes subtitles for notebook LLM analysis.
